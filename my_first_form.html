@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First HTML Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<h2>User Login</h2>
+<!-- comment, only I can see this-->
+<form method="POST" action="http://requestb.in/1a1sg9q1">
+    <p>
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text" required autofocus placeholder="Username">
+    </p>
+    <p>
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password" required placeholder="Password">
+    </p>
+    <p>
+        <button type="submit">Login</button>
+    </p>
+</form>
+<h2>Compose an Email</h2>
+<form>
+    <p>
+        <label for="to">To:</label>
+        <input id="to" name="to" type="text" required placeholder="Enter Email Address" autofocus>
+    </p>
+    <p>
+        <label for="from">From:</label>
+        <input id="from" name="from" type="text" required placeholder="Enter Email Address">
+    </p>
+    <p>
+        <label for="subject">Subject:</label>
+        <input id="subject" name="subject" type="text" placeholder="Enter Subject Here">
+    </p>
+        <textarea id="email_body" name="email_body" rows="5" cols="40">Content Here</textarea>
+        <button type="submit">Send</button>
+        <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked>
+        <label for="mailing_list">Save a copy of this email in my sent folder.</label>
+</form>
+<h2>Multiple Choice Test</h2>
+<form method="POST" action="http://requestb.in/1a1sg9q1">
+    <p>What is the capital of Texas?</p>
+    <label>
+        <input type="radio" name="q1" value="houston">
+        Houston
+    </label>
+    <label>
+        <input type="radio" name="q1" value="dallas">
+        Dallas
+    </label>
+    <label>
+        <input type="radio" name="q1" value="austin">
+        Austin
+    </label>
+    <label>
+        <input type="radio" name="q1" value="san antonio">
+        San Antonio
+    </label>
+    <p>What is the capital of New Jersey?</p>
+    <label>
+        <input type="radio" name="q2" value="trenton">
+        Trenton
+    </label>
+    <label>
+        <input type="radio" name="q2" value="westfield">
+        Westfield
+    </label>
+    <label>
+        <input type="radio" name="q2" value="newark">
+        Newark
+    </label>
+    <label>
+        <input type="radio" name="q2" value="union">
+        Union
+    </label>
+    <p>What fruits have you eaten?</p>
+    <label><input type="checkbox" id="os1" name="os[]" value="apple"> Apple</label>
+    <label><input type="checkbox" id="os2" name="os[]" value="banana"> Banana</label>
+    <label><input type="checkbox" id="os3" name="os[]" value="orange"> Orange</label>
+    <p>
+    <label for="NFC_East">Which team or teams are your favorite in NFC East? </label>
+    <select id="NFC_East" name="NFC_East[]" required multiple>
+        <option value="giants" selected>Giants</option>
+        <option value="cowboys">Cowboys</option>
+        <option value="redskins">Redskins</option>
+        <option value="eagles">Eagles</option>
+    </select>
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+    </form>
+<h2 id="main" class=".title">Select Testing</h2>
+    <form method="post" action="http://requestb.in/1a1sg9q1"
+    <label for="burger_king">Do you like Burger King? </label>
+    <select id="burger_king" name="burger_king" required>
+        <option value="1" selected>Yes</option>
+        <option value="0">No</option>
+    </select>
+        <button>Send</button>
+    </form>
+</form>
+</body>
+</html>

@@ -1,0 +1,96 @@
+div {
+    border: 1px red solid;
+}
+#container {
+    width: 90%;
+    margin: 0 auto;
+}
+/* Start Nav Bar */
+#menu {
+    width: 100%;
+    font-size: 1em;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+/* Nav Bar List */
+#menu li {
+    display: inline;
+    position: relative; /*35px*/
+    bottom: 10px;
+}
+
+li h1 {
+    font-size:20px;
+    display: inline;
+}
+/* End Nav Bar, Start Header */
+#top_header {
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    text-align: center;
+}
+#headline {
+    font-size: 2.0em;
+}
+
+.form {
+    padding-right: 2%;
+    margin-right: 4%;
+}
+
+/*End Header, Start Body Text Sections*/
+#text_left {
+    width: 60%;
+    float: left;
+    padding-left: 2%;
+}
+
+/* Collapsible News Section*/
+#text_right {
+    width: 25%;
+    margin-top: 2%;
+    margin-bottom: 6%;
+    float:left;
+    padding-left:30px;
+}
+
+@media (max-width: 750px) {
+    #text_right, #text_left {
+        float: left;
+        width:100%;
+        margin: 0.5rem 0;
+    }
+
+    #menu li {
+        display: block;
+    }
+
+    #headline {
+        font-size: 1.6em;
+    }
+
+    body {
+        background-color: paleturquoise;
+    }
+
+    html{
+        font-size: .8em;
+    }
+
+    input, select, button, .form {
+        display:block;
+        margin:0 auto;
+        text-align: center;
+    }
+}
+
+#root_news {
+    margin-bottom: 3%;
+}
+/* Footer */
+#quote {
+    background-color: blanchedalmond;
+    border: 1px solid black;
+    text-align: center;
+    clear: left;
+    margin-top: 50%;
+}

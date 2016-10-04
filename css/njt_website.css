@@ -1,0 +1,45 @@
+.row {
+    text-align: center;
+}
+.middle {
+    background-color: lightgrey;
+}
+#engima{
+    text-align: center;
+}
+body{
+    background-color: lightgrey;
+}
+.img-circle {
+    margin-top: 50px;
+    position: relative;
+    left: 16%
+}
+#resume_header{
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+#section_resume {
+    text-align: left;
+}
+#resume_row{
+    text-align: left;
+}
+#course{
+    padding-bottom: 18px;
+}
+#codeup_dates{
+    font-size: smaller;
+    position:relative;
+    top: 130px;
+    padding-bottom: 18px;
+}
+#work_dates{
+    font-size: smaller;
+    position: relative;
+    top: 215px;
+    padding-bottom: 60px;
+}
+#port_header{
+    padding-top: 3%;
+}

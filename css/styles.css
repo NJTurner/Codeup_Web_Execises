@@ -1,0 +1,75 @@
+
+/* CSS comment.  Keep CSS Stylesheet nenear the top of the file*/
+h2 /* Selector */{
+    color: green; /* property value */
+    font-size: 30px;
+}
+
+/* 1. element HTML */
+input {
+    border: 3px solid salmon;
+}
+/* p {
+    background-color: deeppink;
+}*/
+/* 2. ID */
+#title {
+    font-size: 50px;
+    font-family: sans-serif;
+}
+
+/*
+3. Class
+*/
+
+.form {
+    color: yellow;
+    /*background-image: url("../images/picture.jpg");*/
+}
+/* Last rule overwrites the previous rule , EX, white will overwrite yellow*/
+.form-text {
+    color: white;
+    font-weight: bolder;
+}
+/* Descendant */
+.navbar ul #important {
+    list-style-type: none
+}
+
+/* Direct Child*/
+dd>span {
+    text-transform: capitalize;
+}
+/* combined 2 selectors */
+h1.title {
+    text-decoration: underline;
+}
+
+/* ID has more priority than class, so #main overtakes title, so title will not overwrite #main even if it follows */
+#main {
+    color: darkred;
+}
+.title {
+    color: blueviolet;
+}
+
+/* Pseudo Classes (must stay in this order(link, visited, hover, active)lovehate*/
+/* unvisited link (:link) */
+a:link {
+    color:red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}

@@ -1,0 +1,73 @@
+/*
+this content is stored in a file named "site.css"
+in a directory named "css" in the web root
+*/
+
+.fancy-header {
+    color: chartreuse;
+    font-size: 40px;
+    text-decoration: underline;
+}
+dt {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h2 {
+    color: orangered;
+    text-decoration: underline;
+}
+
+body {
+    background-image: url(http://www.webdesigndev.com/wp-content/uploads/2015/02/Subtle-Light-Tile-Pattern-Vol4.jpg);
+    font-family: Helvetica;
+    text-align:center;
+}
+
+ol {
+    list-style: square;
+    list-style-position: inside;
+}
+
+ul {
+    list-style: square;
+    list-style-position: inside;
+}
+
+td {
+    font-size: 13px;
+}
+
+table {
+    background-color: blanchedalmond;
+    padding: 50px;
+    border: 10px solid black;
+    position: relative;
+    left:230px;
+
+}
+
+a:link {
+    color:red;
+}
+
+a:visited {
+    color:darkolivegreen;
+}
+
+a:hover {
+    color:orange;
+}
+
+a:active {
+    color:darkseagreen;
+}
+#container {
+    margin: 50px auto;
+    width: 750px;
+    padding: 10px;
+}
+
+#header {
+    background-color: blanchedalmond;
+}
