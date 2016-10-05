@@ -1,0 +1,22 @@
+body {
+    background-color: darkgreen;
+}
+.container {
+    background-color: #EEEEEE;
+}
+.col-xs-6 {
+
+}
+.jumbotron {
+    padding-bottom: 5px;
+}
+.form-check-input {
+    align-items: center;
+    padding-bottom: 10px;
+}
+.pizzaturtle{
+    padding-top: 30px;
+}
+.btn {
+    margin-bottom: 30px;
+}
