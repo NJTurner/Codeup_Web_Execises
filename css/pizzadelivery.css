@@ -4,11 +4,9 @@ body {
 .container {
     background-color: #EEEEEE;
 }
-.col-xs-6 {
-
-}
 .jumbotron {
     padding-bottom: 5px;
+    text-align: center;
 }
 .form-check-input {
     align-items: center;
@@ -19,4 +17,7 @@ body {
 }
 .btn {
     margin-bottom: 30px;
+}
+#footer{
+    text-align: center;
 }
