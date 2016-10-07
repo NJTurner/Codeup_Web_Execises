@@ -24,33 +24,51 @@ switch (luckyNumber) {
         total = receipt * .5;
         break;
     case 5:
-        total = receipt - 60;
+        total = 0;
         break;
 }
-console.log(total);
+console.log("You got number " + luckyNumber + ", your receipt was for $" + receipt + ".  You'll only pay $" + total);
 
 
-var luckyNumber = Math.floor(Math.random()* 6);
+var monthNumber = Math.floor(Math.random()* 12) + 1;
 var month;
 
-switch (luckyNumber) {
-    case 0:
+switch (monthNumber) {
+    case 1:
         month = "January";
         break;
-    case 1:
+    case 2:
         month = "February";
         break;
-    case 2:
+    case 3:
         month = "March";
         break;
-    case 3:
-        total = "April";
-        break;
     case 4:
-        month = "May";
+        month = "April";
         break;
     case 5:
+        month = "May";
+        break;
+    case 6:
         month = "June";
         break;
+    case 7:
+        month = "July";
+        break;
+    case 8:
+        month = "August";
+        break;
+    case 9:
+        month = "September";
+        break;
+    case 10:
+        month = "October";
+        break;
+    case 11:
+        month = "November";
+        break;
+    case 12:
+        month = "December";
+        break;
 }
-console.log(month);
+console.log("The month number is " + monthNumber + ", so the month is " + month);
