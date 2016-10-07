@@ -21,6 +21,22 @@ do{
 } while (conesLeft > 0);
 console.log("Yay I sold them all!");
 
+// //LuisCode
+// var allCones = Math.floor(Math.random() * 50) + 50;
+// var cones;
+// var conesLeft = allCones;
+//
+// do {
+//     cones = Math.floor(Math.random() * 5) + 1;
+//     console.log(cones + " cones sold...");
+//     if (cones <= conesLeft) {  //if i have enough cones available
+//         conesLeft -= cones; //sell the cones
+//     } /*try again*/else {
+//         console.log("I cannot sell you " + cones + " cones, I only have " + conesLeft + "...")
+//     }
+// } while (conesLeft > 0);
+// console.log("Yay! I sold them all!");
+
 //2.
 var i = 2;
 
