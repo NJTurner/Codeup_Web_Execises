@@ -21,7 +21,7 @@
 
 function getNumericGrade() {
     var grade = parseInt(prompt("Please input your grade"));
-    while(isNaN(grade) || (grade < 0 || grade > 100)){
+    while (isNaN(grade) || (grade < 0 || grade > 100)) {
         grade = parseInt(prompt("Please input your grade as a number"));
         console.log(grade);
         console.log(typeof grade);
@@ -44,10 +44,10 @@ function getNumericGrade() {
 
 function genericGradesAverage() {
     var total = 0;
-    var counter= 0;
+    var counter = 0;
     var userWantsToAddAnotherGrade;
     var average;
-    do{
+    do {
         total += getNumericGrade();
         userWantsToAddAnotherGrade = confirm("Do you want to add another grade?");
         counter++;
@@ -57,10 +57,10 @@ function genericGradesAverage() {
     return average;
 }
 var finalGrade = genericGradesAverage();
-    if(finalGrade >= 80) {
-        alert("you're awesome!");
-    } else {
-        alert("you need some more practice");
-    }
+if (finalGrade >= 80) {
+    alert("you're awesome!");
+} else {
+    alert("you need some more practice");
+}
 //input --> process or sequence of steps-->output
 //calling sequence of steps to produce the output prescribed by it's process
