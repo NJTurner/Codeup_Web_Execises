@@ -1,6 +1,4 @@
-/**
- * Created by NicholasTurner on 10/6/16.
- */
+/*** Created by NicholasTurner on 10/6/16.*/
 // Program
 // * Input
 // * Process (solution)

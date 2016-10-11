@@ -21,3 +21,10 @@ likesPizza = confirm("Do you like pizza, " + userName + "?");
     } else {
         alert("That's weird, I thought everybody liked pizza")
     }
+
+
+    // if(likesPizza) {
+    //     alert("cowabunga!");
+    // } else {
+    //     alert("y u no like pizza?");
+    // }
