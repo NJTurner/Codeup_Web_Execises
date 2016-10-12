@@ -74,18 +74,22 @@ function capitalizeFirstLetterOfEachString(arrayOfStrings) {
 names = capitalizeFirstLetterOfEachString(names);
 console.log(names);
 
+//arrayOfString[index] = string.replace(string[0], string[0].toUpperCase());
 
 //Exercise 2
 //Write a function that takes an array of number 1-10 and returns the product of all the number.  Is this a map, filter or reduce
 //usage of the forEach.
 var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-total = 0;
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach(function (element, array) {
-    total += element;
-});
-console.log("The total is " + total + ", and this is a Reduce usage of a forEach");
-
+//Ryan Code
+function multiplyAllTheNumbers(arrayOfNumbers){
+    var product = 1;
+    arrayOfNumbers.forEach(function(number) {
+        product *= number;
+    });
+    return product;
+}
+console.log(multiplyAllTheNumbers(number));
 
 //Exercise 3
 //Write a function that returns a string containing the HTML necessary for an unordered list with an <li> for each
@@ -106,3 +110,15 @@ console.log("The total is " + total + ", and this is a Reduce usage of a forEach
 //     newArra.push(element);
 // }
 // console.log(newArra + " and this is a Mapping usage of a forEach");
+
+//Ryan Code
+function listify(arrayOfStrings){
+    var htmlContent = "";
+    htmlContent += "<ul>";
+    arrayOfStrings.forEach(function(string){
+        htmlContent += "<li>" + string + "</li>";
+    });
+    htmlContent += "</ul>";
+    return htmlContent;
+}
+console.log(listify(names));
