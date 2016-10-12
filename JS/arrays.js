@@ -16,3 +16,5 @@ grades;
 grades[4] = 75; //add another value to array
 grades;
 [50, 90, 80, 60, 75];
+
+
