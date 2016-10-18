@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+<form>
+    <h1>New Product</h1>
+    <label for="name">Name</label>
+    <input type="text" id = "name">
+    <label for="price">Price</label>
+    <input type="text" id = "price">
+    <button>Submit</button>
+</form>
+<p id="hello"></p>
+<a href="#">Click me</a>
+<script>
+    var greetButtons = document.getElementsByTagName("button");
+    greetButtons[0].addEventListener("click", function(event){
+        event.preventDefault();// prevent default for anchors and submit buttons because it will refresh your page
+        //name is not empty
+        var name = document.getElementById("name").value;
+        //price is not empty, is numeric and is a positive number
+        var price = document.getElementById("price").value;
+       var hello = document.getElementById("hello");
+        hello.innerHTML = " ";
+        if(name == ""){
+                hello.innerHTML = "Please enter a name. <br>";
+        }
+        if(price == ""){
+                hello.innerHTML += "Please enter a price. <br>";
+        }
+        if(isNaN(price)) {
+            hello.innerHTML += "Price must be a number <br>";
+        }
+        if(price < 0) {
+            hello.innerHTML += "Price must be a value greater than zero. <br>"
+        }
+    });
+        console.log(name);
+        console.log(price);
+//       var hello = document.getElementById("hello");
+//        hello.innerHTML = "Hello <strong> " + name + " </strong>";
+//        console.log(name);
+//    });
+
+
+    var anchors = document.getElementsByTagName("a"); //select an element on the page
+    //attach an event to it
+    anchors[0].addEventListener("click", function() {
+        console.log("You have clicked on a link!");
+    });
+</script>
+</body>
+</html>

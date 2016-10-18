@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programming books books</title>
+</head>
+<body>
+<h1>See your friend's books</h1>
+<form>
+    <label for="friend">Choose</label>
+    <select id="friend" name="friend" class="friend">
+        <option value="">Friend</option>
+    </select>
+    <input type="button" value="Search">
+</form>
+<div id="books"></div>
+<script>
+    //https://gist.github.com/MontealegreLuis/ffb24326e0e6bb23257431d55cb71166
+    var friends = [
+        {name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
+        {name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
+        {name: 'Jessica', books: ['Understanding the 4 rules of simple design', 'Principles of package design']},
+        {name: 'Clark', books: ['Selling test driven projects']}
+    ];
+//    var friend = document.getElementsByClassName('friend');
+//    var options;
+//    friends.forEach(function (friend, i) {
+//        options = '<option value="' + i + '">' + friend.name + '</option>';
+//    });
+//    friend.innerText = options;
+    //    Luis code
+    var friend = document.getElementById('friend');
+    var options= "";
+    friends.forEach(function (friend, i) {
+        options += '<option value="' + i + '" > ' + friend.name + '</option>';
+    });
+    friend.innerHTML = options;
+
+    //    end of Luis code
+
+    //    var friend = document.getElementsByClassName("friend");
+    //    for (var i = 0; i < friends.length; i++) {
+    //        var option = document.createElement('option');
+    //        option.innerHTML = friends[i];
+    //        option.value = friends[i];
+    //        friends[0]=
+    //    }
+    //    var friend = document.getElementsByClassName("friend");
+    //  for(var i = 0; i < friends.length; i++) {
+    //        var opt = document.createElement('option');
+    //        opt.innerHTML = friends[i];
+    //        opt.value = friends[i];
+    //        friend.appendChild(opt);
+    //    }
+    //    var friend = document.getElementsByClassName('friend');
+    //    var options= document.createDocumentFragment();
+    //    .forEach(function (friend, i) {
+    //        var opt = document.createElement('option');
+    //        opt.innerHTML = friend;
+    //        opt.value = friend;
+    //        options.appendChild(opt);
+    //        // options = '<option value="' + i + '">' + friend.name + '</option>';
+    //    });
+    //    sel.appendChild(fragment);
+    //    //friend.innerText = options;
+</script>
+</body>
+</html>
