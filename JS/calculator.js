@@ -11,7 +11,12 @@ var number = document.getElementsByClassName("number");
 var operand = document.getElementsByClassName("operand");
 var decimalButton = document.getElementById("decimalButton");
 var plusMinus = document.getElementById("negative");
+var backSpace = document.getElementById("backspace");
+var binary = document.getElementById("binary");
+var hex = document.getElementById("hex");
+var piButton = document.getElementById("pi");
 var squareRoot = document.getElementById("squareroot");
+var percent = document.getElementById("percent");
 
 //input 1 and 2 with number buttons
 function numberClicked() {
@@ -30,6 +35,10 @@ function operatorClicked() {
         operator.value = (this.innerHTML);
     } else {
         operator.value = (this.innerHTML);
+    }
+    if(result.value != ""){
+        leftInput.value = result.value;
+        rightInput.value = "";
     }
 }
 for (var j = 0; j < operand.length; j++) {
@@ -50,6 +59,9 @@ function doMath() {
         } else {
             result.value = (parseFloat(leftInput.value) / parseFloat(rightInput.value));
         }
+    }
+    if(result.value != ""){
+        leftInput.value = result.value
     }
 }
 equals.addEventListener('click', doMath);
@@ -116,14 +128,53 @@ function sqroot() {
         activeScreen = rightInput;
     }
     var number = activeScreen.value;
-
     if (number < 0) {
         squared = "Error";
     } else {
         squared = Math.sqrt(number);
     }
-    activeScreen.value = squared
+    result.value = squared;
+    activeScreen.value = squared;
 }
 squareRoot.addEventListener('click', sqroot);
 
+//Backspace
+function backspace() {
+    var activeScreen;
+    if (rightInput.value != ""){
+        activeScreen = rightInput;
+    } else if(operator.value != ""){
+        activeScreen = operator;
+    } else if(operator.value == ""){
+        activeScreen = leftInput;
+    }
+    var number = activeScreen.value;
+    activeScreen.value = number.substr(0, number.length - 1);
+}
+backSpace.addEventListener('click', backspace);
+
+
+//pi button
+function piNumeric(){
+    var activeScreen;
+    if (operator.value == "") {
+        activeScreen = leftInput;
+    } else {
+        activeScreen = rightInput;
+    }
+   activeScreen.value = Math.PI;
+}
+piButton.addEventListener('click', piNumeric);
+
 //Percent Button
+function percentage(){
+    var percentageValue = (rightInput.value * leftInput.value)/100;
+    rightInput.value = percentageValue;
+    doMath();
+}
+percent.addEventListener('click', percentage);
+
+//active screen function
+function activeScreen(){
+
+}
