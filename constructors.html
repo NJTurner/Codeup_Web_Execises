@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constructors</title>
+</head>
+<body>
+<main class="container">
+
+</main>
+<script>
+    function Person(firstName, lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.fullName = function(){
+            return this.firstName + " " + this.firstName;
+        };
+        return this;
+    }
+    var person= new Person("Ryan", "Orsinger");
+    var person2 = new Person("Cameron", "Holland");
+    var person3 = new Person("Fernando", "Mendoza");
+    //    var person = {
+//        firstName: "Ryan",
+//        lastName: "Orsinger",
+//        fullName: function(){
+//            return this.firstName + " " + this.firstName;
+//        }
+//    };
+
+    console.log(person.fullName());
+    console.log(person2.fullName());
+    console.log(person3.fullName());
+    //console.log(person3.fullName());
+    //console.log(person2.firstName + " " + person2.lastName);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Binary Conversions</title>
+</head>
+<body>
+<main class="container">
+
+</main>
+<script>
+//var binary = 10100011;
+////    101101, 110100101010, 11101111, 01000010];
+////    var binaryString = (binary[1]).toString();
+//
+//
+////    (bn x 2n) + (bn-1 x 2n-1) + ()
+//function binaryConversion(){
+//    var bn;
+//    var n;
+//    var binaryString= binary.toString();
+//    var binaryArray = binaryString.split("");
+//    console.log(binaryArray);
+//
+//    if(bn == 1){
+//        bn * Math.pow(2, n);
+//    } else {
+//        bn - 1  * Math.pow(2, n);
+//    }
+//}
+
+//Luis code
+    var binary = "110100101010";
+
+function binaryDecConversion(binary) {
+    var i;
+    var decimal = 0;
+
+    for (i = 0; i < binary.length; i++) {
+
+        decimal += binary[i] * Math.pow(2, binary.length - i - 1);
+    }
+    return decimal;
+}
+    console.log(binaryDecConversion(binary));
+</script>
+</body>
+</html>

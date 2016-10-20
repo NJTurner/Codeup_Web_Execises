@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+<div id="map-canvas"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-GBaUnFRIcOh8EwtSMgjotl0bd3Jne-w"></script>
+<script type="text/javascript">
+    (function() {
+        "use strict";
+        var mapOptions = {
+            zoom: 18,
+
+            center: {
+                lat:  40.6508311,
+                lng: -74.3988094
+            },
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"), //placeholder for the map
+                mapOptions
+        );
+
+        var address = "366 Park Ave, Scotch Plains, NJ 07076";
+
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({ "address": address }, function(results, status) {
+
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+
+        var stagehouse = { lat: 40.6508311, lng: -74.3988094 };
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var marker = new google.maps.Marker({
+            position: stagehouse,
+            map: map,
+            icon: iconBase + 'dining.png'
+            //animation: google.maps.Animation.DROP
+
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: "<h3>Stagehouse Tavern</h3><p>Small-town bar and grill in downtown Scotch Plains, NJ.  Good for people who never left high school and people visiting their parents.</p>"
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    })();
+</script>
+</body>

@@ -174,7 +174,14 @@ function percentage(){
 }
 percent.addEventListener('click', percentage);
 
-//active screen function
-function activeScreen(){
-
+//hex
+function hexButton() {
+    var activeScreen;
+    if (operator.value == "") {
+        activeScreen = leftInput;
+    } else {
+        activeScreen = rightInput;
+    }
+    var hexString = activeScreen.value.toString(16);
 }
+hex.addEventListener('click', hexButton);
