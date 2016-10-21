@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery examples</title>
+</head>
+<body>
+<h1 id="titleId" class="titleClass">Hello!</h1>
+<p id = jqueryP class="paragraph">This is my jquery paragraph, there are many like it, but this one is mine</p>
+<div id="listContainer" class="div">
+    <ul id="eggListId" class="eggListClass">
+        <li id="overeasy" class="eggtypes">Over Easy</li>
+        <li id="scrambled" class="eggtypes">Scrambled</li>
+        <li id="poached" class="eggtypes">Poached</li>
+
+        <ul class="right-elements">
+            <li class="eggtypes">Over Easy</li>
+            <li class="eggtypes">Scrambled</li>
+            <li class="eggtypes">Poached</li>
+        </ul>
+    </ul>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous">
+</script>
+<script>
+    //    $(document).ready(function () {
+    //        document.getElementById("titleId").style.color = "green";
+    //    });
+    console.log(
+            document.getElementById("titleId").innerHTML
+    ); //JS
+
+    console.log(
+            //the output of the first method is going to used as the input of a second one
+            $("#titleId").html()
+    );// jQuery
+
+    $(document).ready(function() {
+        var poached = $("#scrambled").html();
+        alert(poached);
+    });
+    //5.Use the same id on 2 elements. How does this change the jQuery selection?
+    //selects the first of the two in order
+</script>
+<script>
+    //javascript is much longer than jQuery
+//    var eggtypes = document.getElementsByClassName("eggtypes");
+//    for (var i = 0; i < eggtypes.length; i++){
+//        eggtypes[i].style.fontWeight ='bold';
+//    }
+    //jQuery
+    $(".eggtypes").css('font-weight', 'bold');
+
+    $(".eggtypes").each(function(){//for each
+        console.log($(this).html()); //current element in the result set
+    });
+    //-------------------------multiple classes-------------------------------
+    $(".right-elements .eggtypes").css('font-weight', 'bold');
+
+    $(".right-elements .eggtypes").each(function(){
+        console.log($(this).html());
+    });
+    //-----------------------------------------------------------
+    var $eggtypes = $(".right-elements .eggtypes");// using a jquery variable to cache jquery info
+    $eggtypes.css({//curly brackets so you can do multiple CSS inputs rather than 1 at a time
+        'font-weight':'bold',
+        'color':'blue',
+        'font-family':'monospaced'
+    });
+    console.log($eggtypes.css('color'));
+
+    $eggtypes.each(function(){
+        console.log($(this).html());
+    });
+
+
+</script>
+</body>
+</html>
