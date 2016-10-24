@@ -11,28 +11,52 @@
 </head>
 <body>
 <div class="container">
+    <h1> 10 Facts About National Parks</h1>
 <dl>
-    <dt>Fact #1</dt>
-    <dd>Trees are in national parks</dd>
-    <dt>Fact #2</dt>
-    <dd>Animals are in national parks</dd>
-    <dt>Fact #3</dt>
-    <dd>You can camp there</dd>
-    <dt>Fact #4</dt>
-    <dd>You can Hike there</dd>
-    <dt>Fact #5</dt>
-    <dd>Some places you can swim</dd>
-    <dt>Fact #6</dt>
-    <dd>in Yosemite you can see geysers</dd>
-    <dt>Fact #7</dt>
-    <dd>It can snow there</dd>
-    <dt>Fact #8</dt>
-    <dd>it can rain there</dd>
-    <dt>Fact #9</dt>
-    <dd>you have to throw your garbage away</dd>
-    <dt>Fact #10</dt>
-    <dd>Important to keep your dog on a leash</dd>
+    <dt>
+        <a href="#">Fact #1</a></dt>
+    <dd class="invisible">Trees are in national parks</dd>
+    <dt><a href="#">Fact #2</a></dt>
+    <dd class="invisible">Animals are in national parks</dd>
+    <dt><a href="#">Fact #3</a></dt>
+    <dd class="invisible">You can camp there</dd>
+    <dt><a href="#">Fact #4</a></dt>
+    <dd class="invisible">You can Hike there</dd>
+    <dt><a href="#">Fact #5</a></dt>
+    <dd class="invisible">Some places you can swim</dd>
+    <dt><a href="#">Fact #6</a></dt>
+    <dd class="invisible">in Yosemite you can see geysers</dd>
+    <dt><a href="#">Fact #7</a></dt>
+    <dd class="invisible">It can snow there</dd>
+    <dt><a href="#">Fact #8</a></dt>
+    <dd class="invisible">it can rain there</dd>
+    <dt><a href="#">Fact #9</a></dt>
+    <dd class="invisible">you have to throw your garbage away</dd>
+    <dt><a href="#">Fact #10</a></dt>
+    <dd class="invisible">Important to keep your dog on a leash</dd>
 </dl>
+    <a href="#" id="show-answers">Show Answers</a>
+    <h3>Big Bend</h3>
+    <ul>
+        <li>Water</li>
+        <li>Camping</li>
+        <li>Bend</li>
+        <li>Bend</li>
+    </ul>
+    <h3>Yosemite</h3>
+    <ul>
+        <li>Bears</li>
+        <li>Geysers</li>
+        <li>Buffalo?</li>
+        <li>Mountains</li>
+    </ul>
+    <h3>Arches</h3>
+    <ul>
+        <li>Arches</li>
+        <li>Arches</li>
+        <li>Arches</li>
+        <li>Arches</li>
+    </ul>
 </div>
 <script
         src="https://code.jquery.com/jquery-3.1.1.js"
@@ -40,11 +64,77 @@
         crossorigin="anonymous">
 </script>
 <script>
-    $(document).ready(function() {
-        $("dt").on('click', function() {
-        $("dd").toggleClass("invisible");
+//        $("dt").on('click', function() {
+//        $("dd").toggleClass("invisible");
+//    });
+
+    //luis code
+//jquery methods---------------------------------------------------------
+//    $("#show-answers").on("click",function(event){
+//        event.preventDefault();
+//        ("dd").toggleClass('invisible');
+//    });
+
+///etc. is not a function means whatever method you are attempting is not a jQuery object
+    //Traversing notes :select the link---------------------------
+//    $("a").on("click", function(event){
+//        event.preventDefault();
+//        //$("dd").toggleClass('invisible');
+//        console.log($(this).parent().next("dd"));
+//        //.next calls the next element
+//        // .prev previous element instead of calling next
+//        $(this).parent().next().toggleClass("invisible");
+//    });
+
+    //Traversing Exercise-----------------------------------------
+//    $('ul').each(function(index, element){
+//        $(this).children().first().css("font-weight", "bold");
+//    });
+        //Ryan Code
+    $('ul').each(function(index, element){
+        var $element = $(element);
+        $element.children().first().css("font-weight", "bold");
     });
-    });
+
+//    $("li").on('click', function(event){
+//    $(this).parent().addClass("invisible");
+//});
+        //Ryan Code
+//        $("li").on('click', function(){
+//            $(this).parent().addClass('invisible');
+//        });
+//        $('h3').click(function(){
+//            $(this).next().removeClass('invisible');
+//        });
+
+    //toggle exercise---------------------------------------
+//    $("a").on("click", function(event){
+//        event.preventDefault();
+//        $(this).parent().next().toggle();
+//    });
+//$("li").on('click', function(){
+//    $(this).parent().hide();
+//});
+
+    //fade exercise--------------------------------------
+//    $("a").on("click", function(event){
+//        event.preventDefault();
+//        $(this).parent().next().fadeToggle();
+//    });
+//
+//        $('h3').click(function(){
+//            $(this).next().fadeToggle();
+//        });
+//slide exercise------------------------------------------
+$("a").on("click", function(event){
+    event.preventDefault();
+    $(this).parent().next().slideToggle();
+});
+
+$('h3').click(function(){
+    $(this).next().slideToggle();
+});
+
 </script>
 <script src="js/bootstrap.min.js"></script>
 </body>

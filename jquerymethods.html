@@ -15,7 +15,7 @@
     </tr>
     <tr>
         <td>
-            <input type="checkbox">
+            <input type="checkbox" checked>
         </td>
         <td>Luis</td>
     </tr>
@@ -38,7 +38,7 @@
         <td>Fernando</td>
     </tr>
 </table>
-<button class="btn btn-danger">Delete</button>
+<button id="delete" class="btn btn-danger">Delete</button>
 </div>
 <script
         src="https://code.jquery.com/jquery-3.1.1.js"
@@ -50,17 +50,30 @@
     console.log($("#title").html()); //getter, accessor
     $("#title").html("New text"); //setter, mutator
 
+    $("#delete").on("click", function(event){
+        event.preventDefault();
+        console.log($("tbody").children(/*tr*/".danger"));
+        $("table").children(/*tbody*/).children(/*tr*/".danger").addClass("hidden");
+    });
+
     $("input[type=checkbox]").on('click', function(){
 
         $(this).parent().parent().toggleClass("danger");  //toggling class on and off for tr
 
-//        if($(this).is(":checked")) {
-//            $(this).parent().parent().addClass("danger"); //would give back td and then parent twice is tr, then add class= "danger" to it
-//        } else {
-//            $(this).parent().parent().removeClass("danger"); //removing class danger from tr
-//        }
-        console.log("yay!")
+        if($(this).is(":checked")) {
+            $(this).parent().parent().addClass("danger"); //would give back td and then parent twice is tr, then add class= "danger" to it
+        } else {
+            $(this).parent().parent().removeClass("danger"); //removing class danger from tr
+        }
     });
+    $("tr").first().addClass("info");
+    $("tr").last().addClass("warning");
+    $("tr").each(function (index,element){
+        if(index % 2 == 0) {
+            $(element).addClass("active");
+        }
+    });
+
 
 </script>
 </body>
