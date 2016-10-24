@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Events</title>
+</head>
+<body>
+<h1 id="titleId" class="titleClass">Hello!</h1>
+<p id = jqueryP class="paragraph">This is my jquery paragraph, there are many like it, but this one is mine</p>
+<div id="listContainer" class="div">
+    <ul id="eggListId" class="eggListClass">
+        <li id="overeasy" class="eggtypes">Over Easy</li>
+        <li id="scrambled" class="eggtypes">Scrambled</li>
+        <li id="poached" class="eggtypes">Poached</li>
+
+        <ul class="right-elements">
+            <li class="eggtypes">Over Easy</li>
+            <li class="eggtypes">Scrambled</li>
+            <li class="eggtypes">Poached</li>
+        </ul>
+    </ul>
+<button id="submit">Click</button>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous">
+</script>
+<script>
+function onClick(){
+    alert("you clicked the button!");
+}
+$('#submit').click(onClick);
+$('button').hover(function() {
+    alert('Entered the element')
+}, function(){
+    alert('left the element!')
+});
+
+    $('h1').click(function() {
+                $(this).css('background-color', 'red');
+});
+
+    $('p').dblclick(function(){
+                $(this).css('font-size', '18px');
+});
+
+    $('li').hover(function() {
+                $(this).css('color', 'red');
+            }, function() {
+                $(this).css('color', 'black');
+});
+</script>
+<script>
+$('li').css({
+    'font-size':'20px'
+});
+
+//    $('h1').css('background-color', 'yellow');
+//    $('p').css('background-color', 'yellow');
+//    $('li').css('background-color', 'yellow');//all put into the multipleSelector below
+
+//var multipleSelector = $("ul, p, li");
+//multipleSelector.css('background-color', 'yellow');
+
+$("h1").ready(function(){
+    var h1Alert = $("h1").html();
+    alert(h1Alert);
+});
+</script>
+</body>
+</html>
