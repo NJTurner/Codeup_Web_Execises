@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coding Challenge</title>
+</head>
+<body>
+<main class="container">
+
+</main>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous">
+</script>
+<script>
+    //1.
+
+
+
+    //2.
+
+
+
+    //3.
+
+
+
+    //4.
+    function validateCoord(latitude,longitude){
+        if(latitude <= 90 && latitude >= -90){
+
+            return true;
+        } else {
+            return false;
+        }
+        if(longitude <= 180 && longitude >= -180){
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+    console.log(validateCoord(76.3,400));
+
+
+
+    //5.
+    function dec2bin(dec){
+        return (dec >>> 0).toString(2);
+    }
+    console.log(dec2bin(10.31));
+
+
+</script>
+</body>
+</html>
