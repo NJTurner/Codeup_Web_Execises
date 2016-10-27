@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+<body>
+<main class="container">
+<div class = "col-md-6">
+    <form action="">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter a user's GitHub Address">
+        <button type="submit">Lookup!</button>
+    </form>
+</div>
+</main>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous">
+</script>
+<script src="JS/bootstrap.js"></script>
+<script>
+    (function ($) {
+        $.ajax("JS/friends_json.js", {
+            type: "GET",
+            dataType: "json"
+
+        }).done(function (friend) {//response
+            //JSON object
+            var table = "<table>";
+            friends.forEach(function (friend) {
+                table += "<tr><td>" + friend.name + "</td><td>" + friend.books + "</td></tr>"
+            });
+            table += "</table>";
+            $("placeholder").html(table);
+
+        }).fail(function (error) {
+            console.log(typeof error);
+            console.log()
+        });
+    })(jQuery);
+
+    //Ryan lesson
+    var profile;
+    function addEmailToPage(profile) {
+        $('h3').html("The user's email address is " + profile.email);
+    }
+
+    function getGitHubProfile(username) {
+        $.get("https://api.github.com/users/" + username)
+                .always(function (response) {
+                    console.log(response);
+                }).fail(function (error) {
+            console.log(error);
+        }).done(function (response) {
+            console.log(response);
+            profile = response;
+            //then add their email address to the page
+            addEmailToPage(profile);
+        });
+    }
+
+    //when the user types in a username and hits submit
+    $('button').click(function(e){
+        e.preventDefault();
+        var username = $("#username").val();
+    //call the getGitHubProfile() function with their username then add trheir email address to the page
+    getGitHubProfile(username);
+    });
+
+</script>
+</body>
+</html>

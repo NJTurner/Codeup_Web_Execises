@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+<main class="container cols-md-10 col-md-offset-1">
+    <div class="row">
+        <h1 class="container-title">3-Day Weather Forecast</h1>
+        <input class="form" type="text" id="latitude" name="latitude" placeholder="Latitude">
+        <input class="form" type="text" id="longitude" name="longitude" placeholder="Longitude">
+        <button type="submit">Submit</button>
+    </div>
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <h3>Current Weather</h3>
+        </div>
+        <div class="col-md-4 text-center">
+            <h3>Weather Tomorrow</h3>
+        </div>
+        <div class="col-md-4 text-center">
+            <h3>Weather Next Day</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div id="map-canvas"></div>
+    </div>
+</main>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-GBaUnFRIcOh8EwtSMgjotl0bd3Jne-w"></script>
+<script
+        src="https://code.jquery.com/jquery-3.1.1.js"
+        integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+        crossorigin="anonymous">
+</script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $.get("http://api.openweathermap.org/data/2.5/weather", {
+        APPID: "13a617bb88737a7133219e1fe720b737",
+        lat: 29.423017,
+        lon: -98.48527,
+        units: "imperial"
+    }).done(function (data) {
+        console.log(data);
+    });
+</script>
+<script type="text/javascript">
+    (function () {
+        "use strict";
+        var mapOptions = {
+            zoom: 15,
+
+            center: {
+                lat: 29.426791,
+                lng: -98.489602
+            },
+            mapTypeId: google.maps.MapTypeId.SATELLITE
+        };
+
+        var map = new google.maps.Map(document.getElementById("map-canvas"), //placeholder for the map
+                mapOptions
+        );
+
+        var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({"address": address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            } else {
+                alert("Geocoding was not successful - STATUS: " + status);
+            }
+        });
+        var codeup = {lat: 29.426791, lng: -98.489602};
+
+        var marker = new google.maps.Marker({
+            position: codeup,
+            map: map
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: "Changing the world, one programmer at a time."
+        });
+        infowindow.open(map, marker);
+    })();
+</script>
+</body>
+</html>

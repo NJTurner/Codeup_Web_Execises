@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nick's AJAX Blog</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<main class="container">
+    <h1 class="container-title">Nick's Blog</h1>
+    <div id="insertPosts">
+
+    </div>
+
+</main>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    $.get("blog.json")
+            .always(function (blog) {
+                console.log(blog);
+            }).fail(function (error) {
+        console.log(error);
+    }).done(function (blog) {
+        console.log(blog);
+        blog.forEach(function(post){
+            var categories = post.categories;
+            if (categories.length > 1) {
+                categories = categories.join(", ")
+            }
+            $('#insertPosts').append("<h3>" + post.title +"</h3><h5>" + post.date + "</h5><p>" + post.content + "</p>" + categories);
+        })
+    });
+
+</script>
+</body>
+</html>
