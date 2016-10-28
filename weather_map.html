@@ -8,25 +8,46 @@
         #map-canvas {
             width: 770px;
             height: 481px;
+            margin: 0 auto;
+            margin-bottom: 25px;
+            padding-top: 25px;
         }
+
+        .row {
+            text-align: center;
+        }
+
+        .col-md-4 {
+            border: 1px solid black;
+            background-color: blanchedalmond;
+        }
+
+        .container {
+            background-color: #999f8e;
+        }
+
+        #inputdiv {
+            padding-bottom: 25px;
+        }
+
     </style>
 </head>
 <body>
 <main class="container cols-md-10 col-md-offset-1">
-    <div class="row">
-        <h1 class="container-title">3-Day Weather Forecast</h1>
-        <input class="form" type="text" id="latitude" name="latitude" placeholder="Latitude">
-        <input class="form" type="text" id="longitude" name="longitude" placeholder="Longitude">
-        <button type="submit">Submit</button>
+    <div class="row" id="inputdiv">
+        <h1 class="container-title ">3-Day Weather Forecast</h1>
+        <input class="form" type="text" id="latitude" name="latitude" placeholder="Latitude" value="">
+        <input class="form" type="text" id="longitude" name="longitude" placeholder="Longitude" value="">
+        <button type="submit">Find My Forecast!</button>
     </div>
     <div class="row">
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center" id="current">
             <h3>Current Weather</h3>
         </div>
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center" id="tomorrow">
             <h3>Weather Tomorrow</h3>
         </div>
-        <div class="col-md-4 text-center">
+        <div class="col-md-4 text-center" id="third">
             <h3>Weather Next Day</h3>
         </div>
     </div>
@@ -42,13 +63,40 @@
 </script>
 <script src="js/bootstrap.min.js"></script>
 <script>
-    $.get("http://api.openweathermap.org/data/2.5/weather", {
-        APPID: "13a617bb88737a7133219e1fe720b737",
-        lat: 29.423017,
-        lon: -98.48527,
-        units: "imperial"
-    }).done(function (data) {
-        console.log(data);
+    $('button').click(function () {
+        var userLng = parseFloat($('#longitude').val());
+        var userLat = parseFloat($('#latitude').val());
+        $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+            APPID: "13a617bb88737a7133219e1fe720b737",
+            lat: userLat,
+            lon: userLng,
+            units: "imperial"
+        }).done(function (weather) {
+            var htmlContent = "";
+            console.log(weather);
+            htmlContent = "<h1 class='container-title'>3-Day Weather Forecast for " + weather.city.name;
+            $(".container-title").html(htmlContent);
+            htmlContent = "<h3>Current Weather</h3><p>"
+                    + parseInt(weather.list[0].temp.max) + "&#176;/" + parseInt(weather.list[0].temp.min) + "&#176;</p>"
+                    + "<img src='http://openweathermap.org/img/w/" + weather.list[0].weather[0].icon + ".png'></p><p>Conditions: "
+                    + weather.list[0].weather[0].description + "</p><p> Humidity: " + weather.list[0].humidity
+                    + "%</p><p>Pressure: " + weather.list[0].pressure + "<p>Wind Speed: " + parseInt(weather.list[0].speed) + " mph</p>";
+            $("#current").html(htmlContent);
+            htmlContent = "<h3>Weather Tomorrow</h3><p>"
+                    + parseInt(weather.list[1].temp.max) + "&#176;/" + parseInt(weather.list[1].temp.min) + "&#176;</p>"
+                    + "<img src='http://openweathermap.org/img/w/" + weather.list[1].weather[0].icon + ".png'></p><p>Conditions: "
+                    + weather.list[1].weather[0].description + "</p><p> Humidity: " + weather.list[1].humidity
+                    + "%</p><p>Pressure: " + weather.list[1].pressure + "<p>Wind Speed: " + parseInt(weather.list[1].speed) + " mph</p>";
+            $("#tomorrow").html(htmlContent);
+            htmlContent = "<h3>Weather Next Day</h3><p>"
+                    + parseInt(weather.list[2].temp.max) + "&#176;/" + parseInt(weather.list[2].temp.min) + "&#176;</p>"
+                    + "<img src='http://openweathermap.org/img/w/" + weather.list[2].weather[0].icon + ".png'></p><p>Conditions: "
+                    + weather.list[2].weather[0].description + "</p><p> Humidity: " + weather.list[2].humidity
+                    + "%</p><p>Pressure: " + weather.list[2].pressure + "</p><p>Wind Speed: " + parseInt(weather.list[2].speed) + " mph</p>";
+            $("#third").html(htmlContent);
+        }).fail(function(){
+            alert("API Not loaded")
+        })
     });
 </script>
 <script type="text/javascript">
@@ -82,11 +130,21 @@
         var codeup = {lat: 29.426791, lng: -98.489602};
 
         var marker = new google.maps.Marker({
+            draggable: true,
             position: codeup,
             map: map
         });
+//        google.maps.event.addListener(marker, function (event) {
+//            document.getElementById("latitude").value = marker.getPosition().lat();
+//            document.getElementById("longitude").value = marker.getPosition().lng();
+//        });
+        google.maps.event.addListener(marker, 'dragend', function (event) {
+            document.getElementById("latitude").value = this.getPosition().lat();
+            document.getElementById("longitude").value = this.getPosition().lng();
+        });
+
         var infowindow = new google.maps.InfoWindow({
-            content: "Changing the world, one programmer at a time."
+            content: "What's the Weather?"
         });
         infowindow.open(map, marker);
     })();
