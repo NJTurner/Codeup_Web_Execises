@@ -85,19 +85,33 @@
         tbody.html(buildTableRows(friends));
     };
 
-    tbody.html(buildTableRows(friends));
-    //console.log(filterFriendsByName(friends, $('#friend').val())); //returns an array
+//    tbody.html(buildTableRows(friends));
+//    //console.log(filterFriendsByName(friends, $('#friend').val())); //returns an array
+//    search.on('click', function(){
+//        //filtering
+//        var searchFriends = filterFriendsByName(friends, $('#friend').val());
+//        //build a table
+//        var tableRows = buildTableRows(searchFriends);
+//        //update the document(the table rows)
+//        tbody.html(tableRows);
+//    }); //only functions can have event listeners. changed from array into function, filter friends,  add result into build a row
+//    //console.log(sortName); //returning a function
+//    sortName.on('click', sortTable);
 
-    search.on('click', function(){
-        //filtering
+    var searchedFriends = function(event){
+        event.preventDefault();
         var searchFriends = filterFriendsByName(friends, $('#friend').val());
         //build a table
         var tableRows = buildTableRows(searchFriends);
         //update the document(the table rows)
         tbody.html(tableRows);
-    }); //only functions can have event listeners. changed from array into function, filter friends,  add result into build a row
-    //console.log(sortName); //returning a function
+    };
+
+    tbody.html(buildTableRows(friends));
+    search.on('click', searchedFriends);
+    $("form").on("submit", searchedFriends);
     sortName.on('click', sortTable);
+
 </script>
 </body>
 </html>
