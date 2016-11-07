@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debug Day 11/7</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<main class="container">
+</main>
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+//    var disArray = ['e', 'a', 'g', 'c', 'i', 'd', 'f', 'b', 'h'];
+//    function sortNoSort(array){
+//        var swap;
+//
+//        do{
+//            for (var i = 1, sortCount = 0; i < array.length; i++){
+//                if(array[i - 1] > array[i]){
+//                    swap = array[i - 1];
+//                    array[i - 1] = array[i];
+//                    array[i] = swap;
+//                    sortCount += 1;
+//                }
+//            }
+//        } while(sortCount > 0);
+//        return array;
+//    }
+//    console.log(sortNoSort(disArray));
+
+    //Luis code
+    //1) identify the smaller element
+    //2) remove it from the unordered array
+    //3) move it to the ordered array
+    //4) go to step 1.  Stop there if there are no more elements in the unordered array
+    var letters= ['e', 'a', 'g', 'c', 'i', 'd', 'f', 'b', 'h'];
+    var orderedLetters = [];
+
+    do {
+        //step 1
+        var min = letters[0];
+        var minIndex = 0;
+
+        letters.forEach(function (letter, i) {
+            if (min > letter) {
+                min = letter;
+                minIndex = i;
+            }
+        });
+        letters.splice(minIndex, 1); //step 2
+        orderedLetters.push(min);//step 3
+    } while(letters.length > 0);
+
+    console.log(orderedLetters);
+
+</script>
+</body>
+</html>
